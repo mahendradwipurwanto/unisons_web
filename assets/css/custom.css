@@ -1,0 +1,231 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Handling Updates
+-----------------------------------------------------------------*/
+.tparrows{
+	display: none !important;
+}
+
+.menu-item>.active {
+	color: #1ABC9C;
+}
+
+.photo {
+	overflow: hidden;
+	height: 200px;
+}
+
+.photo img {
+	margin: -15% 0 -10% 0;
+}
+
+.photo-ajax {
+	overflow: hidden;
+	height: 330px;
+}
+
+.photo-ajax img {
+	margin: -15% 0 -10% 0;
+}
+
+.collection-box {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	font-weight: 400;
+	font-size: 16px;
+	color: rgb(112, 122, 131);
+}
+
+.btn-close {
+	background: transparent url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3E%3C/svg%3E") 50%/1em auto no-repeat;
+	border: 0;
+	border-radius: .2rem;
+	box-sizing: content-box;
+	color: #000;
+	height: 1em;
+	opacity: .5;
+	padding: .25em;
+	width: 1em
+}
+
+.btn-close:hover {
+	color: #000;
+	opacity: .75;
+	text-decoration: none
+}
+
+.btn-close:focus {
+	box-shadow: 0 0 0 .2rem rgba(63, 128, 234, .25);
+	opacity: 1;
+	outline: 0
+}
+
+.btn-close.disabled,
+.btn-close:disabled {
+	opacity: .25;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none
+}
+
+.btn-close-white {
+	filter: invert(1) grayscale(100%) brightness(200%)
+}
+
+.bg-aqua {
+	background-color: #1ABC9C;
+	color: white;
+}
+
+.text-aqua {
+	color: 1ABC9C;
+}
+
+/* UPLOAD IMG */
+
+.upload-card {
+	width: 250px;
+	height: 250px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.upload-img {
+	flex-shrink: 0;
+	min-width: 100%;
+	min-height: 100%;
+}
+
+.hidden {
+	display: none;
+}
+
+/*  İNFO CARD  */
+
+.info-card {
+	width: 100%;
+	min-height: 300px;
+	margin: 0 auto;
+	padding: 20px;
+	margin-bottom: 50PX;
+
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.info-text-ctn {
+	width: 500px;
+	height: 300px;
+	/* background: #eee; */
+	margin-left: 100px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.info-head {
+	width: 100%;
+	height: auto;
+}
+
+.info-head h1 {
+	font-size: 50px;
+	font-weight: bold;
+	color: rgb(0, 0, 0);
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.info-text {
+	width: 100%;
+	height: auto;
+}
+
+.info-text p {
+	font-size: 17px;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color: rgb(58, 58, 58);
+}
+
+.info-buton {
+	text-align: left;
+
+}
+
+.info-image {
+	width: 400px;
+	height: 400px;
+	margin-right: 200px;
+}
+
+.info-image img {
+	width: 400px;
+	height: 400px;
+}
+
+.select2-container .select2-selection--single {
+	height: 38px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height: 34px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+	height: 37px !important;
+}
+.portfolio-item .portfolio-image,
+.portfolio-item .portfolio-image>a,
+.portfolio-item .portfolio-image img {
+	display: block;
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+}
+.portfolio-image {
+	overflow: hidden !important;
+	height: 250px !important;
+}
+.photo-gallery {
+	overflow: hidden;
+	height: 200px;
+}
+
+.photo-gallery > a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	margin: -15% 0 -10% 0;
+}
+
+.photo-gallery > a > img {
+	flex-shrink: 0;
+	min-width: 100%;
+	min-height: 100%
+}
+
+.det-gallery {
+	overflow: hidden !important;
+	height: 250px !important;
+}
+
+.det-gallery > img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
