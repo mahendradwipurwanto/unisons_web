@@ -92,6 +92,11 @@ class Admin extends CI_Controller
             'asset_owner' => '0x773a392c30aa5011c68d5bb5a89dc48ab7fd30f0',
         ];
 
+        if($this->opensea->get_collection($params) == false){
+            $this->session->set_flashdata('warning', 'This features currently unavailable due to maintenance!');
+            redirect($this->agent->referrer());
+        }
+
         $data['collection'] = $this->opensea->get_collection($params);
 
         $this->template_backend->view('admin/manage_collection', $data);

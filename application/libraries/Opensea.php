@@ -5,29 +5,34 @@ use GuzzleHttp\Client;
 class Opensea{
 
     protected $api_key = '2f90ccaf248549889b97386e5033798d';
+    protected $use_this = false;
 
     public function get_collection($params)
     {
-        $client = new Client();
+        if($this->use_this == true){
+            $client = new Client();
 
-        $response = $client->request('GET', 'https://api.opensea.io/api/v1/collections', [
-            'headers' => [
-                'Accept' => 'application/json',
-                'X-API-KEY' => $this->api_key,
-            ],
-            'query'   => $params['query']
+            $response = $client->request('GET', 'https://api.opensea.io/api/v1/collections', [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'X-API-KEY' => $this->api_key,
+                ],
+                'query'   => $params['query']
 
-        ]);
-        $data = $response->getBody();
-        $read_json = json_decode($data, true);
+            ]);
+            $data = $response->getBody();
+            $read_json = json_decode($data, true);
 
-        usort($read_json, function ($a, $b) {
-            return $a['created_date'] <=> $b['created_date'];
-        });
+            usort($read_json, function ($a, $b) {
+                return $a['created_date'] <=> $b['created_date'];
+            });
 
-        $read_json = $this->removeElementWithValue($read_json, "name", "goddess-on-the-blockchain");
-        
-        return ($read_json);
+            $read_json = $this->removeElementWithValue($read_json, "name", "goddess-on-the-blockchain");
+            
+            return ($read_json);
+        }else{
+            return false;
+        }
     }
 
     function removeElementWithValue($array, $key, $value)
@@ -42,18 +47,22 @@ class Opensea{
 
     public function get_collection_detail($slug)
     {
-        $client = new Client();
+        if($this->use_this == true){
+            $client = new Client();
 
-        $response = $client->request('GET', 'https://api.opensea.io/api/v1/collection/'. $slug, [
-            'headers' => [
-                'X-API-KEY' => $this->api_key,
-            ],
-        ]);
+            $response = $client->request('GET', 'https://api.opensea.io/api/v1/collection/'. $slug, [
+                'headers' => [
+                    'X-API-KEY' => $this->api_key,
+                ],
+            ]);
 
-        $data = $response->getBody();
-        $read_json = json_decode($data, true);
+            $data = $response->getBody();
+            $read_json = json_decode($data, true);
 
-        return ($read_json);
+            return ($read_json);
+        }else{
+            return false;
+        }
     }
 
 }

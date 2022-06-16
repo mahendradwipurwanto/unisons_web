@@ -19,7 +19,9 @@ class Home extends CI_Controller
 			'asset_owner' => '0x773a392c30aa5011c68d5bb5a89dc48ab7fd30f0',
 		];
 
-		$data['collection'] = array_slice($this->opensea->get_collection($params), 0, 5, true);
+        if($this->opensea->get_collection($params) != false){
+			$data['collection'] = array_slice($this->opensea->get_collection($params), 0, 5, true);
+        }
 
 		$data['hero'] = $this->M_beranda->get_hero();
 
@@ -65,6 +67,11 @@ class Home extends CI_Controller
 			'asset_owner' => '0x773a392c30aa5011c68d5bb5a89dc48ab7fd30f0',
 		];
 
+        if($this->opensea->get_collection($params) == false){
+            $this->session->set_flashdata('warning', 'This features currently unavailable due to maintenance!');
+            redirect($this->agent->referrer());
+        }
+
 		$data['collection'] = $this->opensea->get_collection($params);
 
 		$this->template_frontend->view('beranda/new_collection', $data);
@@ -79,6 +86,12 @@ class Home extends CI_Controller
 
 	public function item_detail($slug)
 	{
+
+        if ($this->opensea->get_collection_detail($slug) == false) {
+            $this->session->set_flashdata('warning', 'This features currently unavailable due to maintenance!');
+            redirect($this->agent->referrer());
+        }
+
 		$data['data'] = $this->opensea->get_collection_detail($slug);
 		$this->load->view('beranda/ajax/item_detail', $data);
 	}
